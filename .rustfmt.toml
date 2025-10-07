@@ -1,0 +1,21 @@
+use_field_init_shorthand = true
+use_try_shorthand = true
+
+# # WTH is this?! Almost all of the features are unstable. If it were me I would be ashamed of myself.
+# # Unstable (currently disabled):
+# unstable_features = true
+# condense_wildcard_suffixes = true
+# format_code_in_doc_comments = true
+# format_macro_matchers = true
+# hex_literal_case = "Upper"
+# imports_layout = "HorizontalVertical" # or maybe just Vertical
+# imports_granularity = "Crate"
+# normalize_comments = true
+# normalize_doc_attributes = true
+# overflow_delimited_expr = true
+# reorder_impl_items = true
+# group_imports = "StdExternalCrate"
+# struct_field_align_threshold = 20
+# # Consider using these options to maintain consistency with .clang-format
+# # brace_style = "AlwaysNextLine"
+# # control_brace_style = "AlwaysNextLine"

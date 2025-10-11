@@ -1,2 +1,4 @@
 [target.'cfg(target_os = "linux")']
+linker = "clang"
+# consider using wild instead of mold in the future
 rustflags = ["-C", "link-arg=-fuse-ld=mold"]

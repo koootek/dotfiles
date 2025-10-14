@@ -16,7 +16,7 @@ set $term alacritty
 # Your preferred application launcher
 set $menu "rofi -combi-modi window,drun -modi combi -show combi"
 # Calc from menu
-set $menu-calc "rofi -modi calc -show calc -no-persist-history"
+set $menu-calc "rofi -modi calc -show calc -no-show-match -no-sort -no-persist-history"
 
 ### Output configuration
 #

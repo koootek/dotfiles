@@ -23,6 +23,7 @@ alias grep=rg
 alias gnugrep=/usr/bin/grep
 alias find=fd
 alias gnufind=/usr/bin/find
+alias disk=gdu
 
 # Add local cargo installed binaries to PATH
 export PATH=/home/kotek/.cargo/bin:$PATH

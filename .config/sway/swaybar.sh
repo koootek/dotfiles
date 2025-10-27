@@ -7,7 +7,7 @@ while true; do
 	amixer=$(amixer sget Master)
 	volume=$(awk -F"[][]" '/Left:/ { print $2 }' <<<"$amixer")
 	muted=$(awk '/\[off\]/ { print "true"; exit }' <<<"$amixer")
-	date=$(date +'%Y-%m-%d %X')
+	date=$(date +'%Y-%m-%d %H:%M:%S')
 	if [[ "$muted" == "true" ]]; then
 		bartext="\ueee8  Muted"
 	else

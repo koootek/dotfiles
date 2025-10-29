@@ -51,17 +51,6 @@ require("lazy").setup({
                 require("Comment").setup()
             end,
         },
-        "MunifTanjim/nui.nvim",
-        {
-            "SmiteshP/nvim-navbuddy",
-            dependencies = {
-                "neovim/nvim-lspconfig",
-                "SmiteshP/nvim-navic",
-                "MunifTanjim/nui.nvim",
-                "numToStr/Comment.nvim",
-                "nvim-telescope/telescope.nvim"
-            }
-        },
         {
             "folke/lazydev.nvim",
             ft = "lua",
@@ -77,10 +66,6 @@ require("lazy").setup({
             config = true
         },
         {
-            "stevearc/dressing.nvim",
-            opts = {},
-        },
-        {
             "L3MON4D3/LuaSnip",
             dependencies = { "rafamadriz/friendly-snippets" },
             config = function()
@@ -91,42 +76,19 @@ require("lazy").setup({
         {
             "lukas-reineke/indent-blankline.nvim",
             main = "ibl",
-            ---@module "ibl"
-            ---@type ibl.config
             opts = {},
             config = function()
                 require("ibl").setup()
             end,
         },
-        "rafamadriz/friendly-snippets",
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
-        {
-            "nvim-neo-tree/neo-tree.nvim",
-            branch = "v3.x",
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                "nvim-tree/nvim-web-devicons",
-                "MunifTanjim/nui.nvim",
-            }
-        },
-        {
-            "antosha417/nvim-lsp-file-operations",
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                "nvim-neo-tree/neo-tree.nvim",
-            },
-            config = function()
-                require("lsp-file-operations").setup()
-            end,
-        },
         { "echasnovski/mini.align",      version = false },
         { "echasnovski/mini.cursorword", version = false },
         { "echasnovski/mini.surround",   version = false },
-        "ggandor/leap.nvim",
         {
             "lewis6991/gitsigns.nvim",
             config = function()
@@ -168,5 +130,3 @@ require("plugins.telescope-conf")
 require("plugins.treesitter-conf")
 require("plugins.cmp-conf")
 require("plugins.mini-conf")
-
--- @lsp.type.namespace.rust disable italic

@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local navic = require("nvim-navic")
-local navbuddy = require("nvim-navbuddy")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, lsp in pairs(lsps) do
@@ -36,7 +35,6 @@ for _, lsp in pairs(lsps) do
         on_attach = function(client, bufnr)
             if client.server_capabilities.documentSymbolProvider then
                 navic.attach(client, bufnr)
-                navbuddy.attach(client, bufnr)
             end
             if lsp == "sqls" then
                 client.server_capabilities.documentFormattingProvider = false

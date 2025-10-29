@@ -13,6 +13,7 @@ compinit
 
 eval "$(starship init zsh)"
 
+# zsh autocompletion
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -27,9 +28,11 @@ alias disk=gdu
 
 # Add local cargo installed binaries to PATH
 export PATH=/home/kotek/.cargo/bin:$PATH
+# Wayland
 export XDG_CURRENT_DESKTOP=sway
 export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME=qt5ct
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export _JAVA_AWT_WM_NONREPARENTING=1
+# Terminal true colors
 export TERM=xterm-256color

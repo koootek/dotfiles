@@ -10,6 +10,7 @@ cmp.setup({
         { name = "nvim_lsp_signature_help" },
         { name = "path" },
         { name = "luasnip" },
+        { name = "crates" },
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),

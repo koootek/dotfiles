@@ -115,6 +115,11 @@ input type:pointer {
     accel_profile flat
     pointer_accel 0.0
 }
+# Compose key
+input type:keyboard {
+    xkb_layout "us"
+    xkb_options "compose:rctrl"
+}
 # Disable focus-follow-mouse
 mouse_warping none
 focus_follows_mouse no

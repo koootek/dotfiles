@@ -9,10 +9,10 @@ while true; do
 	muted=$(awk '/\[off\]/ { print "true"; exit }' <<<"$amixer")
 	date=$(date +'%Y-%m-%d %H:%M:%S')
 	if [[ "$muted" == "true" ]]; then
-		bartext="\ueee8  Muted"
+		soundStatus="\ueee8  Muted"
 	else
-		bartext="\uf028  $volume"
+		soundStatus="\uf028  $volume"
 	fi
-	echo -e "$bartext $separator $date "
+	echo -e "$soundStatus $separator $date "
 	sleep 1
 done

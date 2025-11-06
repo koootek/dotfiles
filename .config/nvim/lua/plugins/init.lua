@@ -115,6 +115,27 @@ require("lazy").setup({
             end
         },
         {
+            "folke/snacks.nvim",
+            priority = 1000,
+            lazy = false,
+            ---@type snacks.Config
+            opts = {
+                ---@class snacks.bigfile.Config
+                bigfile = {
+                    notify = true,
+                    size = 1024 * 1024, -- 1MB
+                },
+                ---@class snacks.input.Config
+                input = { enabled = true },
+                ---@class snacks.lazygit.Config: snacks.terminal.Opts
+                lazygit = { enabled = true },
+                ---@class snacks.picker.Config
+                picker = { enabled = true },
+                ---@class snacks.scope.Config
+                scope = { enabled = true },
+            },
+        },
+        {
             "catppuccin/nvim",
             name = "catppuccin",
             priority = 1000,

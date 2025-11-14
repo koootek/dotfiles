@@ -30,7 +30,7 @@ set $menu-calc "rofi -modi calc -show calc -no-show-match -no-sort -no-persist-h
     # Reload the configuration file
     bindsym $mod+Shift+c reload
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'uwsm stop'
 #
 # Moving around:
 #
@@ -124,8 +124,12 @@ input type:keyboard {
 mouse_warping none
 focus_follows_mouse no
 
-# Post startup stuff
+# Lock after 300s and turn off displays after 600s
+exec swayidle -w \\
+	timeout 300 'swaylock -f -c 000000' \\
+	timeout 600 'swaymsg "output * power off"' \\
+		resume 'swaymsg "output * power on"' \\
+	before-sleep 'swaylock -f -c 000000'
 
-# Disabled due to Xorg instance already running in the background
-# exec Xwayland
+exec Xwayland
 exec_always systemctl --user start sway-session.target

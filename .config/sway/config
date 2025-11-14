@@ -129,5 +129,3 @@ focus_follows_mouse no
 # Disabled due to Xorg instance already running in the background
 # exec Xwayland
 exec_always systemctl --user start sway-session.target
-# System-wide microphone noise reduction
-exec easyeffects --gapplication-service

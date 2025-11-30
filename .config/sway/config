@@ -131,12 +131,10 @@ output DP-2 {
     mode 1920x1080@180.003Hz
 }
 
-# Lock after 300s and turn off displays after 600s
-exec swayidle -w \\
-	timeout 300 'swaylock -f -c 000000' \\
-	timeout 600 'swaymsg "output * power off"' \\
-		resume 'swaymsg "output * power on"' \\
-	before-sleep 'swaylock -f -c 000000'
+# Turn off displays after 300s
+exec swayidle -w \
+	timeout 300 'swaymsg "output * power off"' \
+		resume 'swaymsg "output * power on"' \
 
 exec Xwayland
 exec_always systemctl --user start sway-session.target

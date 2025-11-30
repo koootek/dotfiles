@@ -124,6 +124,13 @@ input type:keyboard {
 mouse_warping none
 focus_follows_mouse no
 
+# Max refresh rate and G-Sync
+output DP-2 {
+    # Requires disabling direct scanout (-Dnoscanout in sway) to avoid flickering
+    adaptive_sync on
+    mode 1920x1080@180.003Hz
+}
+
 # Lock after 300s and turn off displays after 600s
 exec swayidle -w \\
 	timeout 300 'swaylock -f -c 000000' \\

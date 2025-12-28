@@ -126,8 +126,8 @@ focus_follows_mouse no
 
 # Max refresh rate and G-Sync
 output DP-2 {
-    # Requires disabling direct scanout (-Dnoscanout in sway) to avoid flickering
-    adaptive_sync on
+    # Requires disabling direct scanout (-Dnoscanout in sway) to avoid most of the display flickering
+    # adaptive_sync on
     mode 1920x1080@180.003Hz
 }
 

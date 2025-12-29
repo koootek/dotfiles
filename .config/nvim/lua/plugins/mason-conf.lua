@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         if client.supports_method("textDocument/formatting") then
             vim.keymap.set("n", "<leader>fd", function()
                 vim.lsp.buf.format({
-                    bufnr = args.buf,
+                    bufnr = vim.api.nvim_get_current_buf(),
                     formatting_options = { tabSize = 4, insertSpaces = true, trimTrailingWhitespace = true, insertFinalNewline = true, trimFinalNewlines = false, },
                     id = client.id
                 })
@@ -24,8 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 local start_pos = vim.api.nvim_buf_get_mark(0, "<")
                 local end_pos = vim.api.nvim_buf_get_mark(0, ">")
                 vim.lsp.buf.format({
-                    bufnr = args.buf,
-
+                    bufnr = vim.api.nvim_get_current_buf(),
                     formatting_options = { tabSize = 4, insertSpaces = true, trimTrailingWhitespace = true, insertFinalNewline = true, trimFinalNewlines = false, },
                     id = client.id,
                     range = {

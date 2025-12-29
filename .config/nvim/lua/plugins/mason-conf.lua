@@ -11,17 +11,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                buffer = args.buf,
-                callback = function()
-                    vim.lsp.buf.format({
-                        bufnr = args.buf,
-                        formatting_options = { tabSize = 4, insertSpaces = true, trimTrailingWhitespace = true, insertFinalNewline = true, trimFinalNewlines = false, },
-                        id =
-                            client.id
-                    })
-                end,
-            })
+            vim.keymap.set("n", "<leader>fd", function()
+                vim.lsp.buf.format({
+                    bufnr = args.buf,
+                    formatting_options = { tabSize = 4, insertSpaces = true, trimTrailingWhitespace = true, insertFinalNewline = true, trimFinalNewlines = false, },
+                    id = client.id
+                })
+            end)
+        end
+        if client.supports_method("textDocument/rangeFormatting") then
+            vim.keymap.set("v", "<leader>fs", function()
+                local start_pos = vim.api.nvim_buf_get_mark(0, "<")
+                local end_pos = vim.api.nvim_buf_get_mark(0, ">")
+                vim.lsp.buf.format({
+                    bufnr = args.buf,
+
+                    formatting_options = { tabSize = 4, insertSpaces = true, trimTrailingWhitespace = true, insertFinalNewline = true, trimFinalNewlines = false, },
+                    id = client.id,
+                    range = {
+                        start = { start_pos[1] - 1, start_pos[2] },
+                        ["end"] = { end_pos[1] - 1, end_pos[2] + 1 },
+                    }
+                })
+            end)
         end
     end,
 })
@@ -72,6 +84,12 @@ for _, lsp in pairs(lsps) do
                 diagnostics = {
                     enable = true,
                     experimental = {
+                        enable = true,
+                    },
+                },
+                rustfmt = {
+                    extraArgs = { "+nightly" },
+                    rangeFormatting = {
                         enable = true,
                     },
                 },

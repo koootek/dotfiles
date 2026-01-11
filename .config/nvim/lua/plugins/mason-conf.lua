@@ -1,7 +1,7 @@
 require("mason").setup()
 
-local lsps = { "clangd", "rust_analyzer", "lua_ls", "neocmake", "cssls", "bashls", "html", "ts_ls", "jsonls", "marksman",
-    "taplo", "yamlls", "jedi_language_server", "intelephense", "sqls" }
+local lsps = { "clangd", "rust_analyzer", "lua_ls", "cssls", "bashls", "html", "ts_ls", "jsonls", "marksman",
+    "taplo", "yamlls", "jedi_language_server" }
 
 require("mason-lspconfig").setup({
     ensure_installed = lsps,

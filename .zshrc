@@ -17,8 +17,6 @@ eval "$(starship init zsh)"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias startphp=/srv/http/start.sh
-alias stophp=/srv/http/stop.sh
 alias bc="bc -q"
 alias grep=rg
 alias gnugrep=/usr/bin/grep

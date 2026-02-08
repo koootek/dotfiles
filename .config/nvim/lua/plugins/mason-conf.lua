@@ -55,6 +55,23 @@ for _, lsp in pairs(lsps) do
         end,
     }
     if lsp == "rust_analyzer" then
+        vim.keymap.set("n", "<leader>em", function()
+            local params = vim.lsp.util.make_position_params(0, "utf-8")
+            vim.lsp.buf_request(0, 'rust-analyzer/expandMacro', params, function(err, result)
+                if err then
+                    vim.notify('Macro expansion failed: ' .. vim.inspect(err), vim.log.levels.ERROR)
+                    return
+                end
+                if not result then return end
+
+                -- Open in a new buffer
+                vim.cmd('new')
+                vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(result.expansion, '\n'))
+                vim.bo.filetype = 'rust'
+                vim.bo.buftype = 'nofile'
+                vim.bo.bufhidden = 'wipe'
+            end)
+        end)
         cfg.settings = {
             ["rust-analyzer"] = {
                 imports = {

@@ -62,7 +62,10 @@ for _, lsp in pairs(lsps) do
                     vim.notify('Macro expansion failed: ' .. vim.inspect(err), vim.log.levels.ERROR)
                     return
                 end
-                if not result then return end
+                if not result then
+                    vim.notify('Macro expansion failed: result == nil', vim.log.levels.ERROR)
+                    return
+                end
 
                 -- Open in a new buffer
                 vim.cmd('new')
